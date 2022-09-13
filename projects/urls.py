@@ -26,4 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("user/",include('datas.urls')),
     path("mvs/",include(router.urls)),
+    # SessionAuthentication
+    path('auth/',include('rest_framework.urls',namespace='rest_framework'))
 ]

@@ -7,6 +7,8 @@ from .serilizer import *
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin
 
+from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser
+from rest_framework.authentication import BaseAuthentication,SessionAuthentication
 # view sets 
 
 from rest_framework.viewsets import ViewSet,ModelViewSet
@@ -103,3 +105,12 @@ class SchoolViewsets(ModelViewSet):
 
     queryset = Student.objects.all()
     serializer_class = SchoolSerilizer
+
+
+    # authentication_classes
+# .............................................    
+    # authentication_classes = [BaseAuthentication]
+    # permission_classes = [IsAuthenticated]
+
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
