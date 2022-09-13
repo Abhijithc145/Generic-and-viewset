@@ -7,7 +7,7 @@ from .serilizer import *
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin
 
-from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser
+from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly
 from rest_framework.authentication import BaseAuthentication,SessionAuthentication
 # view sets 
 
@@ -113,4 +113,6 @@ class SchoolViewsets(ModelViewSet):
     # permission_classes = [IsAuthenticated]
 
     authentication_classes = [SessionAuthentication]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
+
+    permission_classes = [IsAuthenticatedOrReadOnly]
