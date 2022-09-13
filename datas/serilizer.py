@@ -11,3 +11,10 @@ class dataserilaizer(serializers.ModelSerializer):
     class Meta:
         model = Datas
         fields = "__all__"
+
+        
+
+class SchoolSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = "__all__"        
